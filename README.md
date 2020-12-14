@@ -3,20 +3,20 @@ Internship to build website for Admission Process.
 This is a Django project done by me and my group. Developed a website using Django which can conduct a whole Admission Process Online.
 
 # Pls install:
-*Python
-*Django
-*Django Crispy Forms
-*Pillow
-*Twilio
+* Python
+* Django
+* Django Crispy Forms
+* Pillow
+* Twilio
 
 # What is Included/ Features?
-*User Registration and Login
-*Email Verification
-*Phone Number Verification
-*Profile Update
-*Form Validations
-*Verifier side for verifying documents
-*Form Submission and further procedures
+* User Registration and Login
+* Email Verification
+* Phone Number Verification
+* Profile Update
+* Form Validations
+* Verifier side for verifying documents
+* Form Submission and further procedures
 
 # Follow this Drive Link for accessing my Project:
 

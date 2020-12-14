@@ -1,0 +1,46 @@
+{% extends "user_login_reg/base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	  <link rel="stylesheet" type="text/css" href="{% static 'user_login_reg/Styling.css' %}">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<title>Verification Page</title>
+</head>
+<body>
+	<center>
+	<div align="center" style="margin-top:20px;">
+		<form method="POST">
+			{% csrf_token %} 
+	<p align="center"><b>Application ID: </b><input type="number" name="Application_ID" id="app_id" placeholder="Enter Applicant's ID" required></p>
+	<input type="submit" class="bu-change bu1" align="center">
+		</form>
+	</div>
+	<!-- <script type="text/javascript">
+		function visible()
+		{
+			if(document.getElementById("app_id").value != "")
+			{
+				document.getElementById("doc").style.display="block"
+				document.getElementById("mark").style.display="block"			
+			}
+			else
+			{
+				alert("Enter Application ID")
+			}		
+		}
+	</script> -->
+	<div>
+	{% for message in messages %}
+		<h3>{{ message }}</h3>
+	{% endfor %}</div>
+
+</body>
+</html>
+{% endblock content %}
+
+<!--action="verifier_home"-->

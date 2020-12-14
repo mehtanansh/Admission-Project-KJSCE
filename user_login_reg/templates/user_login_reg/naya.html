@@ -1,0 +1,13 @@
+{% extends "user_login_reg/base.html" %}
+
+{% block content %}
+<center>
+
+
+<button  class="btn btn-danger" style="font-family:Cambo;font-size:18px;"<u><a href="/admin" >View Verifiers,Students and Documents DataBase</a></u></button><br><br>
+<button  class="btn btn-danger" style="font-family:Cambo;font-size:18px;"<u><a href=" {% url 'seat' %}" >Seat Allocation</a></u></button><br><br>
+<button  class="btn btn-danger" style="font-family:Cambo;font-size:18px;"<u><a href="" >Check Student Document Verification Status</a></u></button><br><br>
+<button  class="btn btn-danger" style="font-family:Cambo;font-size:18px;"<u><a  >Generate Rank List</a></u></button><br><br>
+
+</center>
+{% endblock content %}

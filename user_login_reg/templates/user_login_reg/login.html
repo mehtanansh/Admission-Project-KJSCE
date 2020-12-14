@@ -1,0 +1,62 @@
+﻿{% extends "user_login_reg/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+<style>
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 30.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<center>
+<div class="responsive">
+<div class="gallery">
+<figure>
+<a href="{% url 'applicant-login' %}">
+  <img src="{% static 'user_login_reg/student.jpeg' %}" alt="Student Login" style="width:200px;height:200px;border:0;"><figcaption><b>STUDENT LOGIN</b></figcaption>
+</a>
+</figure>
+</div>
+</div>
+<div class="responsive">
+<div class="gallery">
+<a href="{% url 'verifier-login' %}">
+  <img src="{% static 'user_login_reg/verifier.png' %}" alt="Verifier Login" style="width:200px;height:200px;border:0;"><figcaption><b>VERIFIER LOGIN</b></figcaption>
+</a></figure>
+</div></div>
+<div class="clearfix"></div>
+{% endblock content %}

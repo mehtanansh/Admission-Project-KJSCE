@@ -1,0 +1,291 @@
+{% extends "user_login_reg/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+
+<form method="POST" >
+{% csrf_token %}
+
+  	<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Under Graduate Programmes&nbsp; (UG Full time) &nbsp;Duration: 4years</span></span></p>
+  <p>
+  	<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">(Bachelor of Technology- B. Tech Degree from University of Mumbai)</span></span></p>
+  <p>
+  	<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Distribution of seats</span></span></p>
+  <table align="center" border="1" cellpadding="1" cellspacing="1" class="displayTable" style="width:100%;" width="691">
+  	<thead class="svv_banner" style="background-color: rgb(17, 51, 106);">
+  		<tr>
+  			<th rowspan="2" scope="col" style="width: 115px;">
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Programme</span></span></p>
+  			</th>
+  			<th colspan="3" scope="col" style="width: 270px;">
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Filled in through Centralised Admission Process (CAP) of Govt. of Maharashtra</span></span></p>
+  			</th>
+  			<th scope="col" style="width: 270px;">
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Institute Level Seats (ILS) 15% seats&nbsp; </span></span></p>
+  			</th>
+  			<th rowspan="2" scope="col" style="width: 72px;">
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">NRI seats</span></span></p>
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">(5% ILS )</span></span></p>
+  			</th>
+  			<th rowspan="2" scope="col" style="width: 54px;">
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">CIWGC</span></span></p>
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats</span></span></p>
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">(5%)</span></span></p>
+  			</th>
+  			<th rowspan="2" scope="col" style="width: 48px;">
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">PIO (OCI)</span></span></p>
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats (5%)</span></span></p>
+  			</th>
+  			<th rowspan="2" scope="col" style="width: 42px;">
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">FN (5%)</span></span></p>
+  			</th>
+  			<th rowspan="2" scope="col" style="width: 90px;">
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Total</span></span></p>
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Sanctioned intake &nbsp;</span></span></p>
+  			</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<tr>
+  			<td style="width:84px;">
+  				&nbsp;</td>
+  			<td style="width:84px;">
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Gujarati Linguistic Minority seats</span></span></p>
+  			</td>
+  			<td colspan="2" rowspan="1" style="width:72px;">
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;text-align: center;">CAP Seats</span></span></p>
+  			</td>
+  			<td style="width:114px;">
+  				<p>
+  					&nbsp;</p>
+  			</td>
+  			<td style="width:114px;">
+  				&nbsp;</td>
+  			<td style="width:114px;">
+  				&nbsp;</td>
+  			<td style="width:114px;">
+  				&nbsp;</td>
+  			<td style="width:114px;">
+  				&nbsp;</td>
+  			<td style="width:114px;">
+  				&nbsp;</td>
+  		</tr>
+  		<tr>
+  			<td style="width:115px;">
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Computer Engineering</span></span></p>
+  			</td>
+  			<td style="width:84px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="c1" min="0" ><br></span></span></p>
+  			</td>
+  			<td colspan="2" rowspan="1" style="width:72px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="c2" min="0" ><br></span></span></p>
+  				<p align="center">
+  					&nbsp;</p>
+  			</td>
+  			<td style="width:114px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="c3" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:72px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="c4" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:54px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="c5" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:48px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="c6" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:42px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="c7" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:90px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">120</span></span></p>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td style="width:115px;height:9px;">
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Electronics Engineering</span></span></p>
+  			</td>
+  			<td style="width:84px;height:9px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="e1" min="0" ><br></span></span></p>
+  			</td>
+  			<td colspan="2" rowspan="1" style="width:72px;height:9px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="e2" min="0" ><br></span></span></p>
+  				<p align="center">
+  					&nbsp;</p>
+  			</td>
+  			<td style="width:114px;height:9px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="e3" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:72px;height:9px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="e4" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:54px;height:9px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="e5" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:48px;height:9px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="e6" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:42px;height:9px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="e7" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:90px;height:9px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">120</span></span></p>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td style="width:115px;">
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Electronics &amp; Telecommunication Engineering</span></span></p>
+  			</td>
+  			<td style="width:84px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="t1" min="0" ><br></span></span></p>
+  			</td>
+  			<td colspan="2" rowspan="1" style="width:72px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="t2" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:114px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="t3" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:72px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="t4" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:54px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="t5" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:48px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="t6" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:42px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="t7" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:90px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">120</span></span></p>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td style="width:115px;">
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Information Technology</span></span></p>
+  			</td>
+  			<td style="width:84px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="i1" min="0" ><br></span></span></p>
+  			</td>
+  			<td colspan="2" rowspan="1" style="width:72px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="i2" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:114px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="i3" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:72px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="i4" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:54px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="i5" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:48px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="i6" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:42px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="i7" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:90px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">120</span></span></p>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td style="width:115px;">
+  				<p>
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Mechanical Engineering</span></span></p>
+  			</td>
+  			<td style="width:84px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="m1" min="0" ><br></span></span></p>
+  			</td>
+  			<td colspan="2" rowspan="1" style="width:72px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="m2" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:114px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="m3" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:72px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="m4" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:54px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="m5" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:48px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="m6" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:42px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">Seats: <input type="number" name="m7" min="0" ><br></span></span></p>
+  			</td>
+  			<td style="width:90px;">
+  				<p align="center">
+  					<span style="font-size:14px;"><span style="font-family:verdana,geneva,sans-serif;">138 (120+18)</span></span></p>
+  			</td>
+  		</tr>
+  	</tbody>
+  </table>
+  <input type="submit" name="submit" value="SUBMIT">
+  </form>
+
+
+
+  {% endblock content %}

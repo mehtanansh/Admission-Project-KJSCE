@@ -1,0 +1,325 @@
+ <html>
+    <head>
+        <style type="text/css">
+            @media print {
+                #printbtn {
+                    display :  none;
+                }
+            }
+        </style>
+        <style>
+            html,body{
+                margin: 0;
+                padding: 0;
+            }
+            #detailsWrapper{
+                width: 60%;
+                margin-left: 15%;
+                margin-top: 2%;
+                height: 60%;
+
+            }
+            #details{
+                width: 90%;
+                border: 1px slid black;
+                height: auto;
+                border-collapse: collapse;
+            }
+            #details tr{
+                border: 1px solid black;
+            }
+            #details td{
+                border: 1px solid black;
+                widows: 12vw;
+                text-align: center;
+            }
+            #logoWrapper{
+                width: 12vw !important;
+                height: 17vh !important;
+            }
+            #logo{
+                width: 12vw;
+                height: 17vh;
+            }
+            #student_image{
+                width: 12vw;
+                height: 17vh;
+            }#student_signature{
+                width: 12vw !important;
+                height: 17vh !important;
+            }
+            #signatureWrapper{
+                width: 12vw !important;
+                height: 17vh !important;
+            }
+            #personalDetails{
+                width: 90%;
+                border: 1px slid black;
+                height: auto;
+                margin-top: 8%;
+                border-collapse: collapse;
+            }
+            #personalDetails tr{
+                border: 1px solid black;
+            }
+            #personalDetails td{
+                border: 1px solid black;
+                widows: 12vw;
+                text-align: left;
+            }
+            #academicDetails{
+                width: 90%;
+                border: 1px slid black;
+                height: auto;
+                margin-top: 8%;
+                border-collapse: collapse;
+            }
+            #academicDetails tr{
+                border: 1px solid black;
+            }
+            #academicDetails td{
+                border: 1px solid black;
+                widows: 12vw;
+                text-align: left;
+            }
+
+        </style>
+
+    </head>
+{% block content %}
+   {% if user.is_authenticated %}
+    <body>
+        <div id="detailsWrapper">
+            <table id="details">
+
+                <tbody>
+                    <tr>
+                        <td id="logoWrapper" >
+                            <img src="logo.jpeg" id = "logo">
+                        </td>
+                        <td colspan="2">
+                           Application Form for KJSCE - 2020
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="dummy_student.jpg" alt="dummy_student" id="student_image">
+                        </td>
+                        <td id="signatureWrapper">
+                            <img src="dummy_student.jpg" alt="dummy_student" id="student_signature">
+                        </td>
+                        <td>
+                            Application Nmber: {{ candidate.applId }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table id="personalDetails">
+
+                <tr>
+                    <td colspan="2">
+                        Personal details
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                       {{ candidate.applId.first_name }}{{ candidate.applId.last_name }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Mobile No.
+                    </td>
+                    <td>
+                        {{ candidate.mobile }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Email Id
+                    </td>
+                    <td>
+                        {{ user.email }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Gender
+                    </td>
+                    <td>
+                        {{ candidate.gender }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Parent/Guardian Name
+                    </td>
+                    <td>
+                        {{ candidate.parent_guardianName }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Relation
+                    </td>
+                    <td>
+                        {{ candidate.relation }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Parent/Guardian Email Id
+                    </td>
+                    <td>
+                        {{ candidate.parent_guardianEmail }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Parent/Guardian Mobile No.
+                    </td>
+                    <td>
+                        {{ candidate.parent_guardianMobile }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        PWD
+                    </td>
+                    <td>
+                        {{ candidate.pwd }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Address
+                    </td>
+                    <td>
+                        {{ candidate.addr_line_1 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        District
+                    </td>
+                    <td>
+                        {{ candidate.district }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        State
+                    </td>
+                    <td>
+                        {{ candidate.state }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Pincode
+                    </td>
+                    <td>
+                        {{ candidate.pincode }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       Country
+                    </td>
+                    <td>
+                        {{ candidate.country }}
+                    </td>
+                </tr>
+                <!-- <tr>
+                    <td>
+                       Mother Tongue
+                    </td>
+                    <td>
+                        {{ candidate.mother_tongue }}
+                    </td>
+                </tr> -->
+
+            </table>
+
+            <table id="academicDetails">
+                <tr>
+                    <td colspan="2">
+                       Academic details
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                       SSC Passing Year
+                    </td>
+                    <td>
+                        {{ candidate.ssc_year }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       SSC Passing Board
+                    </td>
+                    <td>
+                        {{ candidate.ssc_board }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       SSC Percentage
+                    </td>
+                    <td>
+                        {{ candidate.ssc_aggregate_marks }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       HSC Passing Year
+                    </td>
+                    <td>
+                        {{ candidate.hsc_year }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       HSC Passing Board
+                    </td>
+                    <td>
+                        {{ candidate.hsc_board }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       HSC Percentage
+                    </td>
+                    <td>
+                        {{ candidate.hsc_aggregate_marks }}
+                    </td>
+                </tr>
+            </table>
+
+
+            <br><br>
+
+<input id ="printbtn" type="button" value="Print this page" onclick="window.print();" >
+        <!-- <script>
+        function myFunction() {
+          document.getElementById("show_button").style.visibility = "hidden";
+           window.print();
+        }
+        </script>
+        <button type="button" onclick="myFunction()" id="show_button">Print</button>
+        </div> -->
+
+
+	{% endif %}
+
+{% endblock content %}
+
+
+    </body>
+</html>

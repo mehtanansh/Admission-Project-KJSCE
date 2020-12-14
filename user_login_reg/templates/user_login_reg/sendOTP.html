@@ -1,0 +1,26 @@
+﻿{% extends "user_login_reg/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div style="height:500px;" id="newuser">
+		<div>
+			<div style="height:500px;width:500px;border:2px solid black;margin:100px; padding:2px;background-color:white;">
+				<form method="POST">
+				{% csrf_token %}
+				<b><center><h4 style="padding:5px;color:#8B0000;letter-spacing:5px;">Email and Number Verification</h4></b></center>
+					<div style="margin-left:20px;margin-right:20px;">
+						<label for="mob">Enter Mobile OTP:</label>
+						<input type="text" name="mob_otp"><br><br>
+						<label for="email">Enter Email OTP:</label>
+						<input type="text" name="email_otp">
+					<br>
+					<center><button type="submit" class="btn btn-danger">SUBMIT</button></center>
+						 
+						</div><br>
+
+					</div>
+				</form>
+			</div>
+		</div>
+</div>
+
+{% endblock content %}

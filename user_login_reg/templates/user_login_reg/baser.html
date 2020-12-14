@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<head>
+	<title>KJSCE</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+	<link href='https://fonts.googleapis.com/css?family=Cambo' rel='stylesheet'>
+	<style type="text/css">
+		body,html{
+				background-color:white;
+			}
+
+			#d1{
+			 margin-left:150px;
+			 margin-right:150px;
+			 height:1700px;
+			 background-repeat: no-repeat;
+			 background-image:linear-gradient(to bottom, #FDF5E6 0%,white 100%);
+			 background-blend-mode: lighten;
+			 background-color:white;
+			}
+			.navbar-nav li a{
+				color: #ffffff !important;
+				background-color:#0f0f0f;
+			}
+			.navbar-nav li a:hover{
+				color: #ffffff !important;
+				background-color:grey;
+			}
+			.dropdown-menu:hover,.dropdown-menu:active{
+			background-color:#342e2e !important;
+			color: #ffffff !important;
+			border-radius: 20px;
+			}
+			.fab{
+			float:right;
+			margin-top:20px;
+			font-size: 20px;
+			width: 40px;
+			}
+			.box{
+			border:0.5px solid black;
+			width:350px;
+			height:220px;
+			margin-left:20px;
+			margin-right:20px;
+			padding-top:5px;
+			}
+			.box1{
+			border:0.5px solid black;
+			width:400px;
+			height:130px;
+			margin-left:20px;
+			margin-right:30px;
+			padding-top:5px;
+			}
+			.v1{
+			margin-left:10px;
+			padding-left:4px;
+			}
+			.uv{
+			float:middle;
+			height:300px;
+			width:480px;
+			border:2px solid black;
+			margin:60px;
+			padding:2px;
+			background-color:white;
+			}
+			.bottom{
+			float:left;
+			margin-left:30px;
+			font-weight:500;
+			width:230px;
+			}
+			.link1 {
+			  color: black;
+			  background-color: transparent;
+			  text-decoration: none;
+
+			}
+			.link1 a:hover,a:link,a:active,a:visited{
+			color: black;
+			background-color: transparent;
+			text-decoration: none;
+			}
+
+
+	</style>
+	<script>
+			function visible_v()
+			{
+			document.getElementById("v_java").style.display="block"
+			document.getElementById("u_java").style.display="none"
+			document.getElementById("newuser").style.display="none"
+			}
+			function visible_eu()
+			{
+			document.getElementById("u_java").style.display="block"
+			document.getElementById("v_java").style.display="none"
+			document.getElementById("newuser").style.display="none"
+			}
+			function visible_nu()
+			{
+			document.getElementById("newuser").style.display="block"
+			document.getElementById("v_java").style.display="none"
+			document.getElementById("u_java").style.display="none"
+	</script>
+</head>
+<body style="background-color:white;">
+
+<div id="d1">
+{% load static %}
+<img src="{% static 'user_login_reg/s1.jpg' %}" style="height:100px;width:100px;float:left;margin:20px;margin-left:40px;">
+<h3 style="color:black;float:left;margin-top:60px;letter-spacing:2px;width:450px;font-family:'Cambo';
+		"><strong>Somaiya Vidyavihar University</strong></h3>
+<img src="{% static 'user_login_reg/s2.jpg' %}" style="height:60px;width:90px;float:right;margin-top:40px;margin-right:50px;"><br><br><br><br><br><br>
+		<div class="input-group" style="width:950px;margin-left:180px;font-family:'Cambo';
+		font-size:25px;">
+				<center><span style="width:2500px; margin-bottom:0px;color:black;padding-top:100px;padding-left:10px;font-size:25px;letter-spacing:2px;"><strong>
+				K. J. SOMAIYA COLLEGE OF ENGINEERING<br>(CONSTITUENT ACADEMIC UNIT OF SOMAIYA VIDYAVIHAR UNIVERSITY)
+				</strong></span></center>
+		</div>
+
+	<a href="https://www.instagram.com/somaiyatrust/" class="fab fa-instagram" style="color:purple;margin-right:35px;" target="_blank"></a>
+	<a href="https://www.google.com/" class="fab fa-google" style="color:red;" target="_blank"></a>
+	<a href="https://www.facebook.com/SomaiyaTrust/" class="fab fa-facebook" target="_blank"></a>
+	<a href="https://www.youtube.com/user/SomaiyaVidyavihar" class="fab fa-youtube" style="color:red;" target="_blank"></a>
+	<a href="https://twitter.com/SomaiyaTrust" class="fab fa-twitter" target="_blank"></a>
+
+
+<b><div style="margin-left:50px;margin-right:50px;float:none;padding-top:50px;display:block;font-weight:900; font-family: Cambo;">
+<nav class="navbar navbar-inverse navbar-custom" style="width:100%;">
+ <div class="container-fluid" style="background-color:#0f0f0f;">
+<ul class="nav navbar-nav">
+ <li><a href="{% url 'home-page' %}">HOME</a></li>
+ <li><a href="https://kjsce.somaiya.edu/kjsce/about_us/founder" target="_blank"><strong>ABOUT US</strong></a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+{% if user.is_authenticated %}
+<li><a href="{% url 'logo' %}">LOGOUT</a></li>
+{% else %}
+ <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> <strong>REGISTER</strong></a></li>
+ <li><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><i class="fa fa-sign-in"></i><strong> LOGIN</strong><span class="caret"></span></a>
+<ul class="dropdown-menu">
+ <li id="l1"><button><span onclick="visible_v()" style="cursor:pointer;"> <a href="{% url 'verifier-login' %}"><strong>VERIFIER LOGIN</strong></a></span></button></li>
+ <li><button><span onclick="visible_nu()"style="cursor:pointer;"><a href="{% url 'login' %}"><strong>STUDENT LOGIN</strong></a></span></button></li>
+ <li><button><span onclick="visible_nu()"style="cursor:pointer;"><a href="{% url 'logi' %}"><strong>ADMIN LOGIN</strong></a></span></button></li>
+{% endif %}
+ </ul>
+ </li>
+</ul>
+ </div>
+</nav>
+</div>
+</b>
+<body>
+    <div style=" margin-left:60px;width:500px;">
+	{% if messages %}
+		{% for message in messages %}
+			<div class="alert alert-{{ message.tags }}">
+				{{ message }}
+			</div>
+		{% endfor %}
+	{% endif %}
+	</div>
+	{% block content%}
+	{% endblock %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<div><br>
+<hr style="border:2px solid #343434;">
+<div style="float:left;">
+
+<div style="margin:20px;width:100%;font-family:Cambo;">
+<div class="bottom" style="width:140px;">
+	<strong class="title-text-color">ABOUT US</strong><br>
+           <a href="https://kjsce.somaiya.edu/kjsce/about_us/founder" class="link1">About SUV</a><br>
+           <a href="https://kjsce.somaiya.edu/kjsce/about_us/About_Kjsce" class="link1">About KJSCE</a><br>
+           <a href="https://kjsce.somaiya.edu/kjsce/about_us/founder" class="link1">Founder</a><br>
+</div>
+<div class="bottom" style="width:260px;">
+	<strong class="title-text-color">DEPARTMENT</strong>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/academic/department/21/computer_engineering" class="link1">Computer Engineering</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/academic/department/19/electronics__telecommunication_engineering" class="link1">Electronics & Telecommunication - Engineering</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/academic/department/20/electronics_engineering" class="link1">Electronics Engineering</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/academic/department/18/information_technology" class="link1">Information Technology</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/academic/department/17/mechanical_engineering" class="link1">Mechanical Engineering</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/academic/department/16/sciences_and_humanities" class="link1">Science & Humanities</a>
+</div>
+<div class="bottom" style="width:230px;">
+	<strong class="title-text-color">ADMISSION</strong>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/admission/B_TECH_PROGRAMME" class="link1">B_TECH_PROGRAMME</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/admission/M_TECH_PROGRAMME" class="link1">M.TECH_PROGRAMME</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/admission/Ph_D_Programme" class="link1">PH.D_PROGRAMME</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/admission/Information_Brochure" class="link1">Information Brochure</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/admission/digital%20payment%20facility" class="link1">Digital Payment Facility</a>
+
+</div>
+<div class="bottom" style="width:170px;">
+	<strong class="title-text-color">PLACEMENTS</strong>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/placement/Placement_Details" class="link1">Placement Detail</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/placement/LOOKING_BACK" class="link1">Looking Back</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/placement/Industry_Academic_Interface" class="link1">Industry Academic Interface</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/placement/CURRENT_YEAR" class="link1">Current year</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/placement/OUR_RECRUITERS" class="link1">Our Recruiters</a>
+</div>
+<div class="bottom">
+	<strong class="title-text-color" style="width:170px;">STUDENT</strong>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/STUDENT_LIFE/student_council" class="link1">Council</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/STUDENT_LIFE/student_activities" class="link1">Activities</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/STUDENT_LIFE/ENTREPRENEURSHIP_CELL" class="link1">Entrepreneurship Cell - BLOOMBOX</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/STUDENT_LIFE/ALUMNI" class="link1">Alumni Cell</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/STUDENT_LIFE/OTHER_FACILITIES" class="link1">Other Facilities</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/STUDENT_LIFE/Top_University_Details" class="link1">Top University Details</a>
+	<br><a href="https://kjsce.somaiya.edu/kjsce/STUDENT_LIFE/Higher_Studies_Data" class="link1">Higher Studies Data</a>
+</div>
+</div>
+</div>
+<div style="margin:20px;padding:40px;">
+        <div class="link1" style="float:left;margin-top:40px;">
+            <span style="font-family:Cambo;font-size:17px;">© 2019 somaiya vidyavihar</span>
+        </div>
+        <div class="link1" style="float:right;;margin-top:40px;">
+            <a href="/kjsce/common/legal_notice" style="font-family:Cambo;font-size:17px;">Legal Notice</a> | <a href="/kjsce/common/usage_policy" style="font-family:Cambo;font-size:17px;">Usage Policy</a>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Preference</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="theme.css">
+
+<style>
+	table,th,td
+	{
+	  border-collapse: collapse;
+	  border:none;
+	  font-size:20px;
+	  padding:5px;
+	}
+	table{
+	  width:90%;
+	  margin-left:5%;
+	}
+
+	a{
+	 padding: 15px 20px;
+	}
+
+	a:hover {
+	text-decoration: none;
+	 color: #1BAC91;
+	}
+	.block
+	{
+	width:50%;
+	padding:10px;
+	margin-left:25%;
+	border:3px solid #4db8ff;
+	box-shadow: 2px 2px 5px #b3e0ff;
+	border-radius:5px;
+	font-size:20px;
+	}
+	#brand{
+		color:white;
+	}
+	#brand:hover{
+	text-decoration: none;
+	color: #1BAC91;
+	}
+	.btn-primary
+	{
+		margin-bottom: 15px;
+	}
+
+</style>
+
+<script>
+
+function getPreference(event){
+	let list = document.getElementById('example2-right')
+	let d = list
+	if(d.children.length == 0){
+		alert("Select Atleast one Branch")
+		return;
+	}
+
+	let preference = []
+	for(let i=0;i<d.children.length; i++){
+		preference.push(d.children[i].innerHTML)
+	}
+	console.log(preference);
+}
+</script>
+
+</head>
+<body> 
+<small><b>*Drag branches from the Available Branches into the Set Preferences Box<br>*Arrange the Preferences according to your preference number</b></small>
+<br><br>
+<div id="myDIV">
+<table>
+	<tr>
+	<th style="text-align:center;font-size:32px;">Available Branches</th>
+	<th style="text-align:center;font-size:32px;">Set Your Preference</th>
+</tr>
+<tr>
+	<div class="container">
+	<td colspan=2>
+		<div id="example1" class="list-group col">
+		</div>
+
+		<div id="shared-lists" class="row" >
+			<div id="example2-left" class="list-group col col2">
+				<div class="list-group-item">Computer Science(CS)</div>
+				<div class="list-group-item">Electronics(ETRX)</div>
+				<div class="list-group-item">Electronics and Telecommunication(EXTC)</div>
+				<div class="list-group-item">Information Technology(IT)</div>
+				<div class="list-group-item">Mechanical(MECH)</div>
+			</div>
+
+		<div>
+			<div class="list-group-item" style="margin-top: 14px;">1</div>
+			<div class="list-group-item" id="arrange">2</div>
+			<div class="list-group-item" id="arrange">3</div>
+			<div class="list-group-item" id="arrange">4</div>
+			<div class="list-group-item" id="arrange">5</div>
+		</div>
+
+		<div id="example2-right" class="list-group col col2" style="background-color: #8B0000"></div>
+
+		</div></td>
+	</div>
+</tr></table>
+	<br>
+	<div id="pre" align="center">
+	<button class="btn btn-primary" onClick="getPreference()">Submit</button>
+	</div>
+</div>
+
+<script src="Sortable.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

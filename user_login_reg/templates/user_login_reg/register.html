@@ -1,0 +1,53 @@
+{% extends "user_login_reg/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<style type="text/css">
+	.form-control
+	{
+		height:35px;
+		font-family: Cambo, Ariel;
+		font-size:15px;
+	}
+
+	hr
+	{
+		visibility:hidden;
+	}
+</style>
+
+<body>
+<div style="height:500px;font-family:Cambo;" id="newuser">
+		<div style="float:left;width:400px;margin-left:70px;margin-top:60px;text-align:justify;font-size:15px;">
+		<h4 style="text-transform: uppercase;">Important Instructions</h4>
+		<ul >
+		<li>Confidentiality of the password is solely the responsibility of the candidate and all care must be taken to protect the password.</li>
+		<li>Candidates must take the print out of the final locked choices for submission during reporting.</li>
+		<li>For security reasons,after finishing your work, kindly click the LOGOUT button and close all the windows related to your session.</li>
+		<li>Candidates are advised to keep changing the password at frequent intervels.</li>
+		</ul>
+		</div>
+
+		<div>
+			<div style="float:right;height:600px;width:500px;border:2px solid black;margin:100px; padding:2px; border-radius: 15px;">
+				<form method="POST">
+				{% csrf_token %}
+				<b><center><h4 style="padding:5px;color:black;letter-spacing:5px;font-family:Cambo;"><strong>REQUEST FOR INFO</strong></h4></b></center>
+					<div style="margin-left:20px;margin-right:20px;">
+						{{ form | crispy }}
+					<br>
+						<div>
+						<input type="checkbox" name="text"  checked required style="margin-left:20px;padding-left:6px;float:left;">
+						<span style="width:300px;padding-left:10px;float:left;">I authorize KJSCE University to contact me with updates & notifications via Email, SMS & WhatsApp.</span>
+						</div><br>
+						<div>
+						<br>
+						<center><button type="submit" class="btn btn-danger"><strong>SUBMIT</strong></button></center>
+						</div><br>
+					</div>
+				</form>
+			</div>
+		</div>
+</div>
+</body>
+{% endblock content %}

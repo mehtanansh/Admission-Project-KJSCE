@@ -1,0 +1,449 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Base</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	    <!-- Bootstrap CSS -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="{% static 'user_login_reg/main.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'user_login_reg/theme.css' %}">
+		<link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+		<script src="{% static 'user_login_reg/main.js' %}"></script>
+		<script language="Javascript" src="jquery.js"></script>
+	    <script type="text/JavaScript" src='state.js'></script>
+	</head>
+	<body onload="init()">
+		<div class="container-fluid">
+		<div id="breadcrumb_wrapper">
+			<div id="breadcrumb_header">
+				<h1><span>Application form</span></h1>
+			</div>
+			<ul id="breadcrumbs-two">
+				<li ><a href="#" onclick="displayPersonal()">Personal details</a></li>
+				<li ><a href="#" onclick="displayAcademic()">Academic details</a></li>
+				<li ><a href="#" onclick="displayUpload()">Upload files</a></li>
+				<li ><a href="#" onclick="displayPref()">Preferences</a></li>
+				<li ><a href="#" onclick="displayECA()">Extra Curricular Activities</a></li>
+
+			</ul>
+		</div>
+		<!-- <div class="container-fluid"> -->
+		<form enctype="multipart/form-data" method="POST">
+		{% csrf_token %}
+			<div id="personal_details" class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12"><h4>Candidiate's Personal Details</h4></div><br><br>	
+							<div class="col-md-6">	
+								<div class="form-group">
+									<label>First Name</label>
+									<input type="text" name="firstname" id="fName" onkeydown="displayName()" placeholder="First Name" class="form-control form-control-lg" value = "{{ candidate.applId.first_name }}">
+								</div>
+								
+								<div class="form-group">
+									<label>Guardian's Email Id</label>
+									<input type="email" class="form-control form-control-lg" name="parentGuardianEmailId" placeholder="Guardian's Email ID" value = "{{ candidate.parent_guardianEmail }}">
+								</div>
+
+								<div class="form-group">
+									<label>Date Of Birth</label>
+									<input type="date" name="DOB" value= "{{ candidate.DOB }}" class="form-control form-control-lg">
+								</div>
+
+								<div class="form-group">
+									<label>Guardian Mobile No.</label>
+									<input type="number" class="form-control form-control-lg" name="parentGuardianMobile" placeholder="Guardian's Mobile Number" value = "{{ candidate.parent_guardianMobile }}">
+								</div>
+
+								<div class="form-group">
+									<label>Religion</label>
+									<input type="text" name="Religion" class="form-control form-control-lg" placeholder="Religion" value = "{{ candidate.religion }}">
+								</div>
+
+								<div class="form-group">
+									<label>Gender</label>
+									{% if candidate.gender == 'male' %}
+									<div class="form-check-inline">
+										<label class="form-check-label">
+										<input type="radio" class="form-check-input" name="gender" value="male" checked>Male
+										</label>
+									</div>
+									<div class="form-check-inline">
+										<label class="form-check-label">
+										<input type="radio" class="form-check-input" name="gender" value="female">Female
+										</label>
+									</div>
+									<div class="form-check-inline">
+										<label class="form-check-label" for="radio1">
+										<input type="radio" class="form-check-input" name="gender" value="other">Other
+										</label>
+									</div>
+									{% elif candidate.gender == 'female' %}
+									<div class="form-check-inline">
+										<label class="form-check-label">
+										<input type="radio" class="form-check-input" name="gender" value="male">Male
+										</label>
+									</div>
+									<div class="form-check-inline">
+										<label class="form-check-label">
+										<input type="radio" class="form-check-input" name="gender" value="female" checked>Female
+										</label>
+									</div>
+									<div class="form-check-inline">
+										<label class="form-check-label" for="radio1">
+										<input type="radio" class="form-check-input" name="gender" value="other">Other
+										</label>
+									</div>
+									{% elif candidate.gender == 'other' %}
+									<div class="form-check-inline">
+										<label class="form-check-label">
+										<input type="radio" class="form-check-input" name="gender" value="male">Male
+										</label>
+									</div>
+									<div class="form-check-inline">
+										<label class="form-check-label">
+										<input type="radio" class="form-check-input" name="gender" value="female">Female
+										</label>
+									</div>
+									<div class="form-check-inline">
+										<label class="form-check-label" for="radio1">
+										<input type="radio" class="form-check-input" name="gender" value="other" checked>Other
+										</label>
+									</div>
+									{% else %}
+									<div class="form-check-inline">
+										<label class="form-check-label">
+										<input type="radio" class="form-check-input" name="gender" value="male">Male
+										</label>
+									</div>
+									<div class="form-check-inline">
+										<label class="form-check-label">
+										<input type="radio" class="form-check-input" name="gender" value="female">Female
+										</label>
+									</div>
+									<div class="form-check-inline">
+										<label class="form-check-label" for="radio1">
+										<input type="radio" class="form-check-input" name="gender" value="other">Other
+										</label>
+									</div>
+									{% endif %}
+								</div>
+
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Last Name</label>
+									<input type="text" name="lastname" placeholder="Last Name" class="form-control form-control-lg" value = "{{ candidate.applId.last_name }}">
+								</div>
+								
+								<div class="form-group">
+									<label>Candidate's Email ID</label>
+									<input type="email" name="emailId" placeholder="Email ID" class="form-control form-control-lg" value = "{{ candidate.applId.email }}">
+								</div>
+								
+								<div class="form-group">
+									<label>Candidate's Mobile No.</label>
+									<input type="number" name="mobile" placeholder="Mobile Number" class="form-control form-control-lg" value = "{{ candidate.mobile }}">
+								</div>	
+
+								<div class="form-group">
+									<label>Relation</label>
+									<input type="text" name="Relation" class="form-control form-control-lg" placeholder="Your relation with Guardian" value = "{{ candidate.relation }}">
+								</div>
+
+								<div class="form-group"h>
+									<label>Guardian's name</label>
+									<input type="text" name="parentGuardianName" class="form-control form-control-lg" placeholder="Guardian's Full Name" value = "{{ candidate.parent_guardianName }}">
+								</div>
+							</div>	
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12"><h4>Candidiate's Address Details</h4></div><br><br>	
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Address</label>
+									<input type="text" class="form-control form-control-lg" placeholder="Block No./Street" id="addressL" name="addressLine1" value= "{{ candidate.addr_line_1 }}">	
+								</div>
+								<div class="form-group">
+									<label>Country</label>
+									<input type="text" class="form-control form-control-lg" placeholder="Country" name="Country" value= "{{ candidate.country }}">	
+								</div>
+								<div class="form-group">
+									<label>Pincode</label>
+									<input type="number" class="form-control form-control-lg" placeholder="Pincode" name="Pincode" value="{{ candidate.pincode }}">
+								</div>	
+
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>District</label>
+									<input type="text" class="form-control form-control-lg" placeholder="District" name="District" id="district" value= "{{ candidate.district }}">
+								</div>																
+								<div class="form-group">
+									<label>State</label>
+									<input type="text" class="form-control form-control-lg" placeholder="State" name="State" id="state" value="{{ candidate.state }}">	
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+			<div id="academic_details" class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12"><h4>Candidiate's Academic Details</h4></div><br><br>	
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>SSC Passing Year</label>
+									<input type="number" class="form-control form-control-lg" name="SSCPassingYear" value = "{{ candidate.ssc_year }}" placeholder="SSC Passing Year">	
+								</div>
+								<div class="form-group">
+									<label>SSC Aggregate Marks</label>
+									<input type="number" class="form-control form-control-lg" name="SSCAggregateMarks" value= "{{ candidate.ssc_aggregate_marks }}" placeholder="SSC Aggregate Marks">
+								</div>
+								<div class="form-group">
+									<label>SSC Maximum Marks</label>
+									<input type="number" class="form-control form-control-lg" name="SSCMarksOutOf" value= "{{ candidate.ssc_marks_out_of }}" placeholder="Marks Out of in SSC">	
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label><small>HSC Physics Marks</small></label>
+											<input type="number" class="form-control form-control-lg" name="HSCPhysicsMarks" placeholder="HSC Physics Marks" value = "{{ candidate.hsc_physics_marks }}"> 	
+										</div>											
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label><small>HSC Chemistry Marks</small></label>
+											<input type="number" class="form-control form-control-lg" name="HSCChemistryMarks" placeholder="HSC Chemistry Marks" value = "{{ candidate.hsc_chemistry_marks }}"> 	
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label><small>HSC Maths Marks</small></label>
+											<input type="number" class="form-control form-control-lg" name="HSCMathematicsMarks" placeholder="HSC Maths Marks" value = "{{ candidate.hsc_math_marks }}"> 	
+										</div>
+									</div>									
+								</div>	
+								<div class="row">
+									<div class="col-md-8">
+										<div class="form-group">
+											<label>Examinations you appeared</label><br>
+											<span>CET</span><input type="checkbox" value="CET" class="checkbox" id="cet_check" onchange="createCETInput()">
+											<span>JEE Mains</span><input type="checkbox" value="jee_main" class="checkbox" id="jeem_check" onchange="createJEEMInput()">
+											<span>JEE advance</span><input type="checkbox" value="jee_advance" class="checkbox" id="jeea_check" onchange="createJEEAInput()">
+											<span>SET</span><input type="checkbox" value="set" class="checkbox" id="set_check" onchange="createSETInput()">
+										</div>	
+									</div>
+									<div class="col-md-4" id="setWrapper">
+										
+									</div>
+								</div>					
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>HSC Passing Year</label>
+									<input type="number" class="form-control form-control-lg" name="HSCPassingYear" value = "{{ candidate.hsc_year }}" placeholder="HSC Passing Year">	
+								</div>								
+								<div class="form-group">
+									<label>HSC Aggregate Marks</label>
+									<input type="number" class="form-control form-control-lg" name="HSCAggregateMarks" value= "{{ candidate.hsc_aggregate_marks }}" placeholder="HSC Aggregate Marks">
+								</div>
+								<div class="form-group">
+									<label>HSC Maximum Marks</label>
+									<input type="number" class="form-control form-control-lg" name="HSCMarksOutOf" value = "{{ candidate.hsc_marks_out_of }}" placeholder="Marks Out of in HSC">	
+								</div>
+								
+								<div class="row" id="cetWrapper">
+
+								</div> 
+								<div class="row" id="cetEachWrapper">
+									
+								</div>	
+								<div class="row" id="jeeWrapper">
+																
+								</div>																
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+			<div id="upload_files" class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div class="container">
+						<div class="row" id="uploadTable">
+							<div class="col-md-12"><h4>Candidiate's Uploaded Files</h4></div><br><br>	
+							<div class="custom-file mb-3">
+								<input type="file" name="SSCMarksheet" class="custom-file-input" id="customFile" value = "{{ candidate.ssc_result }}">
+								<label class="custom-file-label" for="customFile">SSC Marksheet</label>
+							</div>
+							<div class="custom-file mb-3">
+								<input type="file" name="HSCMarsksheet" class="custom-file-input" value= "{{ candidate.hsc_result }}">
+								<label class="custom-file-label" for="customFile">HSC Marksheet</label>
+							</div>
+							<div class="custom-file mb-3">
+								<input type="file" name="leavingCertificate_Domicile" class="custom-file-input" value= "{{ candidate.hsc_LC }}">
+								<label class="custom-file-label" for="customFile">Certificate</label>
+							</div>
+							<div class="custom-file mb-3">
+								<input type="file" name="birthCertificate_Bonafide_LeavingCerificate" class="custom-file-input" value="{{ candidate.nationality_proof }}">
+								<label class="custom-file-label" for="customFile">Certificate</label>
+							</div>
+							<div class="custom-file mb-3">
+								<input type="file" name="signature" class="custom-file-input" value="{{ candidate.signature }}">
+								<label class="custom-file-label" for="customFile">Candidate's Signature</label>
+							</div>
+							<div class="custom-file mb-3">
+								<input type="file" name="candidatePhoto" class="custom-file-input" value="{{ candidate.candidate_photo }}">
+								<label class="custom-file-label" for="customFile">Candidate's Photo</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+			<div id="eca" class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div class="container" id="ecaContainer">
+						<div class="row">
+							<div class="col-md-12"><h4>Candidiate's Extra Curricular Activities (Optional)</h4></div><br><br>	
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Activity Name</label>
+									<input type="text" class="form-control form-control-lg" name="DEMO" placeholder="Name of the Activity">	
+								</div>	
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Participation Year</label>
+									<input type="text" class="form-control form-control-lg" name="DEMO" placeholder="Year of the Participation">	
+								</div>	
+							</div>
+							<div class="col-md-12">
+								<label>Certificates</label>
+								<input type="file" class="form-control-file border" name="DEMO" placeholder="Year of the Participation">	
+							</div>
+						</div><br><br>
+						<div class="row">
+							<div class="col-md-3">
+								<button type="button" class="btn btn-primary btn-lg btn-block" onclick="addMoreActivities()">Add more activities</button>
+							</div>
+							<div class="col-md-3">
+								<button type="button" class="btn btn-primary btn-lg btn-block" onclick="removeLastActivity()">Remoce last activity</button>
+							</div>
+							<div class="col-md-6">
+								
+							</div>
+						</div><br><br>
+						<div class="row">
+							<div class="col-md-7"></div>
+							<div class="col-md-5">
+								<div class="row">
+									<div class="col-md-4">
+										<button type="button" onclick="window.location.href = {% url 'display' %};" class="btn btn-primary btn-lg btn-block">Print</button>
+									</div>
+									{% if user.is_authenticated %}
+									<div class="col-md-4">
+										<!-- <div class="form-group">	 -->
+											<button type="button" onclick="window.location.href = {% url 'logout' %};" class="btn btn-danger btn-lg btn-block">Logout</button>
+										<!-- </div> -->
+									</div>
+									{% endif %}
+									<div class="col-md-4">
+											<button type="submit" class="btn btn-success btn-lg btn-block">Save</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+			<div id="preference_details">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<small><b>*Drag branches from the Available Branches into the Set Preferences Box<br>*Arrange the Preferences according to your preference number</b></small>
+							<br><br>
+						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<div class="row">	
+								<!-- <h2 style="text-align:center;">Set Preferences</h2> -->
+								<div id="example1" class="list-group col-md-12">
+
+								</div>
+								<div id="shared-lists" class="col-md-12">
+									<div class="row">
+										<div class="col-md-12">
+											
+										</div>
+										<div class="col-md-6">
+											<div id="example2-left" class="list-group col" style="background: #8B0000">
+												<div class="list-group-item bg-success text-white">Computer Science(CS)</div>
+												<div class="list-group-item bg-success text-white">Electronics(ETRX)</div>
+												<div class="list-group-item bg-success text-white">Electronics and Telecommunication(EXTC)</div>
+												<div class="list-group-item bg-success text-white">Information Technology(IT)</div>
+												<div class="list-group-item bg-success text-white">Mechanical(MECH)</div>
+											</div>
+										</div>
+										<div class="col-md-1">
+											<div>
+												<div class="list-group-item">1</div>
+												<div class="list-group-item" id="arrange">2</div>
+												<div class="list-group-item" id="arrange">3</div>
+												<div class="list-group-item" id="arrange">4</div>
+												<div class="list-group-item" id="arrange">5</div>
+											</div>
+										</div>
+										<div class="col-md-5">
+											<div id="example2-right" class="list-group col col2" style="background: #8B0000"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+				</div>
+			</div>
+	    </form>
+		</div>
+		<script>
+			// Add the following code if you want the name of the file appear on select
+			// $(".custom-file-input").on("change", function() {
+			//   var fileName = $(this).val().split("\\").pop();
+			//   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+			// });
+		</script>
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	    <script src="{% static 'user_login_reg/Sortable.js' %}"></script>
+		<script src="{% static 'user_login_reg/app.js' %}"></script>
+	    </div>
+	</body>
+</html>

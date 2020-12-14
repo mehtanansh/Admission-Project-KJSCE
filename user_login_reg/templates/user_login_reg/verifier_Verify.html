@@ -1,0 +1,164 @@
+{% extends "user_login_reg/base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	  <link rel="stylesheet" type="text/css" href="{% static 'user_login_reg/Styling.css' %}">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<title>Applicant Verification Page</title>
+</head>
+
+<br><br><br>
+	<div align="center" id="doc" style="margin-top:100px;">
+	<h1 style="color:red;font-size=30px;font-family:Brush Script MT">List of Documents</h1>
+	<hr style="align:center; width:50% ;border-top:1px solid black">
+		<table align="center" border="1" cellpadding="50">
+			<tr>
+				<th style="text-align:center;border-radius: 10px;">Name Of Document</th>
+				<th style="text-align:center;border-radius:10px">Preview</th>
+				<th style="text-align:center;border-radius:10px">Verified</th>
+			</tr>
+			<tr>
+				<td>SSC Marksheet</td>
+				<div style="margin-top:10px">
+				<td><button><i class="material-icons">info</i></button></td>
+				</div>
+				<td><input type="checkbox" name="verify" id='Part1'></td>
+			</tr>
+			<tr>
+				<td>SSC Leaving Certificate</td>
+				<td><button><i class="material-icons">info</i></button></td>
+				<td><input type="checkbox" name="verify" id='Part2'></td>
+			</tr>
+			<tr>
+				<td>HSC Marksheet</td>
+				<td><button><i class="material-icons">info</i></button></td>
+				<td><input type="checkbox" name="verify" id='Part3'></td>
+			</tr>
+			<tr>
+				<td>HSC Leaving Certificate</td>
+				<td><button><i class="material-icons">info</i></button></td>
+				<td><input type="checkbox" name="verify" id='Part4'></td>
+			</tr>
+			<tr>
+				<td>JEE Mains Scorecard</td>
+				<td><button><i class="material-icons">info</i></button></td>
+				<td><input type="checkbox" name="verify" id='Part5'></td>
+			</tr>
+			<tr>
+				<td>JEE Advance Scorecard</td>
+				<td><button><i class="material-icons">info</i></button></td>
+				<td><input type="checkbox" name="verify" id='Part6'></td>
+			</tr>
+			<tr>
+				<td>CET Scorecard</td>
+				<td><button><i class="material-icons">info</i></button></td>
+				<td><input type="checkbox" name="verify" id='Part7'></td>
+			</tr>
+			<tr>
+				<td>SCT Scorecard</td>
+				<td><button><i class="material-icons">info</i></button></td>
+				<td><input type="checkbox" name="verify" id='Part8'></td>
+			</tr>
+			<tr>
+				<td>Domicile Certificate</td>
+				<td><button><i class="material-icons">info</i></button></td>
+				<td><input type="checkbox" name="verify" id='Part9'></td>
+			</tr>
+		</table>
+	</div>
+
+	<div align="center" id="mark">
+	<h1 style="color:red;font-size=30px;font-family:Brush Script MT">List of Marks</h1>
+	<hr style="align:center; width:50% ;border-top:1px solid black">
+		<table align=center border=1px cellpadding=5>
+			<tr>
+				<th style="text-align:center;border-radius: 10px;">Name Of Exam and Subject</th>
+				<th style="text-align:center;border-radius:10px">Marks</th>
+				<th style="text-align:center;border-radius:10px">Verified</th>
+			</tr>
+			<tr>
+				<td style="padding-top: 5px;padding-bottom: 5px">CET Physics</td>
+				<td></td>
+				<td><input type="checkbox" name="verify" id='Part10'></td>
+			</tr>
+			<tr>
+				<td style="padding-top: 5px;padding-bottom: 5px">CET Chemistry</td>
+				<td></td>
+				<td><input type="checkbox" name="verify" id='Part11'></td>
+			</tr>
+			<tr>
+				<td style="padding-top: 5px;padding-bottom: 5px">CET Mathematics</td>
+				<td></td>
+				<td><input type="checkbox" name="verify" id='Part12'></td>
+			</tr>
+			<tr>
+				<td style="padding-top: 5px;padding-bottom: 5px">JEE-Mains(Overall)</td>
+				<td></td>
+				<td><input type="checkbox" name="verify" id='Part13'></td>
+			</tr>
+			<tr>
+				<td style="padding-top: 5px;padding-bottom: 5px">JEE-Advance(Overall)</td>
+				<td></td>
+				<td><input type="checkbox" name="verify" id='Part14'></td>
+			</tr>
+			<tr>
+				<td style="padding-top: 5px;padding-bottom: 5px">HSC Physics</td>
+				<td></td>
+				<td><input type="checkbox" name="verify" id='Part15'></td>
+			</tr>
+			<tr>
+				<td style="padding-top: 5px;padding-bottom: 5px">HSC Chemistry</td>
+				<td></td>
+				<td><input type="checkbox" name="verify" id='Part16'></td>
+			</tr>
+			<tr>
+				<td style="padding-top: 5px;padding-bottom: 5px">HSC Mathematics</td>
+				<td></td>
+				<td><input type="checkbox" name="verify" id='Part17'></td>
+			</tr>
+			<tr>
+				<td style="padding-top: 5px;padding-bottom: 5px">HSC(Overall)</td>
+				<td></td>
+				<td><input type="checkbox" name="verify" id='Part18'></td>
+			</tr>
+			<tr>
+				<td style="padding-top: 5px;padding-bottom: 5px">SSC(Overall)</td>
+				<td></td>
+				<td><input type="checkbox" name="verify" id='Part19'></td>
+			</tr>
+		</table>
+		<br><br>
+		<div>
+		<form method="POST">
+			{% csrf_token %} 
+				<input type="radio" id="male" name="gender" value="male" onclick="terms_changed(this)">
+				<label for="male">Save and Proceed to next Applicant</label><br><br>
+				<input type="radio" id="female" name="gender" value="female" onclick="terms_changed(this)">
+				<label for="female">Completely verified all documents</label><br>
+    </div>
+    <div>
+        <br><input type="submit" id="submit_button11" disabled>
+    </div>
+	</div> 
+<script>
+	function terms_changed(termsCheckBox){
+		if(termsCheckBox.checked)
+		{
+			document.getElementById("submit_button11").disabled = false;
+		} 
+		else
+		{
+			document.getElementById("submit_button11").disabled = true;
+		}
+	}
+	</script>
+</form>
+</div>
+</center>
+
+{% endblock content %}

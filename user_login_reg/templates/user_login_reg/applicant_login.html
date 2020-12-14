@@ -1,0 +1,28 @@
+﻿{% extends "user_login_reg/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<center>
+<div class="uv" id="u_java" style="border-radius:15px;">
+<form method="POST">
+{% csrf_token %}
+<strong><center><h4 style="padding:5px; color:black;letter-spacing:5px;font-family:Cambo;"><strong>STUDENT LOGIN</strong></h4></strong></center>
+<input type="text" name="username"  placeholder="Username" style="text-align:center;width:300px; height:35px; border-radius:5px; border-style: solid 1px;font-family:Cambo;font-size:16px;"><br><br><br>
+
+<input type="password" name="password" placeholder="Password" style="text-align:center;width:300px; height:35px; border-radius:5px; border-style: solid 1px;font-family:Cambo;font-size:16px;"><br>
+<br>
+<center><button type="submit" class="btn btn-danger" style="font-family:Cambo;font-size:18px;"><strong>SUBMIT</strong></button></center>
+<br>
+<br>
+<a href="#" class="v1" style="font-family:Cambo;font-size:15px;">Forgot Password?</a>
+<span  class="v1"><input type="checkbox" name="Remember Me" style="font-family:Cambo;font-size:15px;"> Remember Me</span>
+{% for message in messages %}
+	<div class="alert alert-{{ message.tags }}">
+		{{ message }}
+	</div>
+{% endfor %}
+	 
+</div>
+</div>
+</center>
+{% endblock content %}
